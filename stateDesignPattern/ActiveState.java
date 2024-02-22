@@ -23,14 +23,14 @@ public class ActiveState implements AccountState {
 
     @Override
     public void withdrawState(Account account, double amount) {
-        if (amount > account.getBalance()) {
-            System.out.println("There is not enough money to withdraw!");
-        } else {
-            double updatedBalance = account.getBalance() - amount;
-            account.setBalance(updatedBalance);
-            System.out.println("\nWithdrawn " + amount + ". Current balance: " + account.getBalance());
-        }
+        String withdraw = (amount > account.getBalance()) ? "There is not enough money to withdraw!" :
+                (amount <= account.getBalance()) ? ("\nWithdrawn " + amount + ". Current balance: " + (account.getBalance() - amount)) :
+                        "Invalid amount";
+        account.setBalance((amount <= account.getBalance()) ? (account.getBalance() - amount) : account.getBalance());
+        System.out.println(withdraw);
     }
+
+
 
     @Override
     public void closeState(Account account) {
