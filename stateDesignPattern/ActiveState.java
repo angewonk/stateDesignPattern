@@ -7,34 +7,36 @@ public class ActiveState implements AccountState {
         System.out.println("\nDeposited " + amount + ". Current balance: " + account.getBalance());
     }
 
-    private double insufficientFunds(Account account) {
-        System.out.println("There is not enough money to withdraw!");
-        return account.getBalance();
-    }
-
     @Override
     public void suspendState(Account account) {
         account.setAccountState(new SuspendedState());
         System.out.println("\nAccount is suspended!");
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Current Balance: " + account.getBalance());
+
     }
 
     @Override
     public void activateState(Account account) {
         System.out.println("\nAccount is already activated!");
     }
+
     @Override
     public void withdrawState(Account account, double amount) {
-        double updatedBalance = account.getBalance() - amount;
-        updatedBalance = updatedBalance < 0 ? insufficientFunds(account) : updatedBalance;
-        account.setBalance(updatedBalance);
-        System.out.println("\nWithdrawn " + amount + ". Current balance: " + account.getBalance());
+        if (amount > account.getBalance()) {
+            System.out.println("There is not enough money to withdraw!");
+        } else {
+            double updatedBalance = account.getBalance() - amount;
+            account.setBalance(updatedBalance);
+            System.out.println("\nWithdrawn " + amount + ". Current balance: " + account.getBalance());
+        }
     }
 
     @Override
     public void closeState(Account account) {
         account.setAccountState(new ClosedState());
         System.out.println("\nAccount is closed!");
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Current Balance: " + account.getBalance());
     }
-
-
 }

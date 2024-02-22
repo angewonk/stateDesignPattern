@@ -18,15 +18,12 @@ public class AccountTest {
 
         //Suspend the account
         myAccount.suspend();//displays "Account is suspended!"
-        System.out.print(myAccount.toString());
 
         //Activate the account
         myAccount.activate();//displays "Account is activated!"
-        System.out.print(myAccount.toString());
 
         //Close the account()
         myAccount.close(); //displays "Account is closed!"
-        System.out.print(myAccount.toString());
 
         //Activate the account
         myAccount.activate();// Displays "You cannot activate a closed account!"

@@ -23,13 +23,16 @@ public class SuspendedState implements AccountState {
     public void activateState(Account account) {
         account.setAccountState(new ActiveState());
         System.out.println("\nAccount is activated!");
-        System.out.println();
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Current Balance: " + account.getBalance());
     }
 
     @Override
     public void closeState(Account account) {
         account.setAccountState(new ClosedState());
         System.out.println("\nAccount is closed!");
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Current Balance: " + account.getBalance());
     }
 }
 
