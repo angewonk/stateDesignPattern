@@ -15,12 +15,12 @@ public class ActiveState implements AccountState {
     @Override
     public void suspendState(Account account) {
         account.setAccountState(new SuspendedState());
-        System.out.println("Account is suspended!");
+        System.out.println("\nAccount is suspended!");
     }
 
     @Override
     public void activateState(Account account) {
-        System.out.println("Account is already activated!");
+        System.out.println("\nAccount is already activated!");
     }
     @Override
     public void withdrawState(Account account, double amount) {
@@ -33,7 +33,7 @@ public class ActiveState implements AccountState {
     @Override
     public void closeState(Account account) {
         account.setAccountState(new ClosedState());
-        System.out.println("Account is closed!");
+        System.out.println("\nAccount is closed!");
     }
 
 

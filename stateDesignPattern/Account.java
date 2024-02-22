@@ -8,7 +8,7 @@ public class Account {
     public Account(String accountNumber, double balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.accountState = new ActiveState(); // Default state is active
+        this.accountState = new ActiveState();
     }
 
     public void deposit(double amount) {
@@ -55,6 +55,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "\nAccount Number" + accountNumber + ", balance=" + balance + "\n";
+        return "Account Number" + accountNumber + ", balance=" + balance + "\n";
     }
 }

@@ -7,12 +7,6 @@ public class AccountTest {
         System.out.println(myAccount.toString());
         myAccount.activate();// displays "Account is already activated!"
 
-        //Suspend the account
-        myAccount.suspend();//displays "Account is suspended!"
-
-        //Activate the account
-        myAccount.activate();//displays "Account is activated!"
-
         //Deposit to the account
         myAccount.deposit(1000.0);// update balance and displays account number and
         // current balance. Call the toString() method in deposit().
@@ -21,8 +15,18 @@ public class AccountTest {
         myAccount.withdraw(100.0);// update balance and displays account number and
         // current balance. Call the toString() method in deposit().
 
+
+        //Suspend the account
+        myAccount.suspend();//displays "Account is suspended!"
+        System.out.print(myAccount.toString());
+
+        //Activate the account
+        myAccount.activate();//displays "Account is activated!"
+        System.out.print(myAccount.toString());
+
         //Close the account()
         myAccount.close(); //displays "Account is closed!"
+        System.out.print(myAccount.toString());
 
         //Activate the account
         myAccount.activate();// Displays "You cannot activate a closed account!"
